@@ -12,4 +12,7 @@ We know that the larger *n_T* and *n_D* are, the more gas particles we have to f
 However, *P* is dependant on n_T * n_D so we need it to be at its maximum in order for us to generate the most power
 We have n_T * n_D = n_T * (n_ref - n_T) = n_D * (n_ ref - n_ D) => (n_T * n_D) max if n_T = n_D = 0.5 * n_ref
 
+So how can we adjust n_T and n_D so that they reach the desired value of 0.5 * n_ ref. By adjusting the amount of gas pumped of course. However, it is a bit more complex as tritium and deuterium decay over time (need confirmation for deuterium). Therefore, we have the equations for the densities:
+
+
 # stop because of headache
