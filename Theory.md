@@ -1,6 +1,7 @@
 ***This file is a summary of all the new knowledge I gain during the internship***
 
 
+
 # Motivation for the project
 
 The power output *P* of a tokamak is:
@@ -10,14 +11,17 @@ where:
 *n_D* : density of deuterium in the core
 *T* : temperature in the core
 
-We can see that the relation implies that the larger each parameter gets, the more power we can generate. However, as expected, there are ceilings for them.
+*First of all, why are there 2 types of gas and not only 1? The reason is that tritium and deuterium react really well together as they have the lowest activation temperature/energy and the highest reaction rate (according to Juan).*
+
+Back to the relation, we can see that it implies that the larger each parameter gets, the more power we can generate. However, as expected, there are ceilings for them.
+
 For *T*, if it is too high, the tokamak would not be able to withstand the heat and be melted down. 
-**NOTE: The exact T to be chosen and how is still unclear**
+*Then how is T determined/maximized? Separately but simultaneously with the product of the densities (according to Juan).*
 
 For *n_T* and *n_D*, we have Greenwald density limit n_GW -- a theoretical hard limit on total density: **n_GW > n_D + **n_T**
 
 We know that the larger *n_T* and *n_D* are, the more gas particles we have to fuse, allowing us to generate more power. Therefore, we would want **n_T + n_D = n_ref (n_ref < n_GW)**, the largest possible.
-**NOTE: The exact way to indicate n_ref is still unclear**
+*The exact way to indicate n_ref? Based on the certainty of the model. The scientists calculate the GW limit (I do not know the process) and give the result and certainty to the engineers. Based on the numbers, the engineer will choose a safe reference number to construct the reactor (according to Juan).*
 
 However, *P* is dependant on n_T * n_D so we need it to be at its maximum in order for us to generate the most power
 We have **n_T * n_D = n_T * (n_ref - n_T) = n_D * (n_ ref - n_ D)** => **(n_T * n_D) max** if **n_T = n_D = 0.5 * n_ref**
@@ -34,10 +38,12 @@ where *alpha_1* and *alpha_2* are the loss rate coefficients, *Gamma_D* and *Gam
 
 We introduce the fuel ratio *r*. It is defined as:
 **r = Gamma_T / (Gamma_T + Gamma_D)**
-**Reason: Still not very clear, still need some confirmation.**
-**Opinion: I think it shows that we care more about tritium more than deuterium, but I can't actually explain why. Also, this only shows the fraction between the 2 flowrates, so we can have multiple pairs of Gamma_D and Gamma_T for the same r, then how do we know which one to pick? Should we introduce a new parameter?**
+*The convention behind this definition is that we know r has the value 0-1. Based on this and the equations for the densities we can determine the 2 flowrates.*
 
-Anyways, the goal is now slightly shifts towards trying to achieve the ideal fuel ratio *r_ideal*, at which **n_T = n_D = 0.5 * n_ref** is achieved:
+
+The goal is now slightly shifts towards trying to achieve the ideal fuel ratio *r_ideal*, at which **n_T = n_D = 0.5 * n_ref** is achieved:
 **r_ideal = alpha_2 / (alpha_1 + alpha_2)**
 **NOTE: Should write more clearly how can we reach this**
+
 Based on this equation, we can easily adjust the flowrates. However, there is one small problem: we don't know *alpha_1* and *alpha_2* and they may vary over time.
+

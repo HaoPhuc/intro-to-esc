@@ -57,7 +57,7 @@ tile = tiledlayout(3, 3);
 t = 0:dt:tend;
 t_zoom = [0, tend];
 ESC_list = ["ss"];
-color_list = ["b", "r", "g", "m", "c", "y"];
+color_list = ["blue", "red", "cyan", "yellow", "maroon", "green"];
 
 for i = 1:length(ESC_list)
     nexttile(1)
@@ -67,12 +67,12 @@ for i = 1:length(ESC_list)
     nexttile(4)
     plot(t, out.(ESC_list(i) + "_nT"), color_list(i))
     hold on
-    plot(t, out.(ESC_list(i) + "_nT_ref"), "k--")
+    plot(t, out.(ESC_list(i) + "_nT_ref"), "c--")
     
     nexttile(7)
     plot(t, out.(ESC_list(i) + "_nD"), color_list(i))
     hold on
-    plot(t, out.(ESC_list(i) + "_nD_ref"),"k--")
+    plot(t, out.(ESC_list(i) + "_nD_ref"),"c--")
 
     nexttile(2)
     plot(t, out.(ESC_list(i) + "_nD_times_nT"), color_list(i))
@@ -92,7 +92,7 @@ for i = 1:length(ESC_list)
 end
 
 nexttile(1)
-yline(total_density_reference, 'k--')
+yline(total_density_reference, 'c--')
 yline(greenwald_density_limit, 'r--')
 ylabel('$n_D + n_T$', 'Interpreter','latex')
 box on
@@ -113,7 +113,7 @@ xlim(t_zoom)
 legend("$n_D$", "$n_D$ reference", "interpreter", "latex", "Location", "southeast")
 
 nexttile(2)
-yline(0.25 * total_density_reference^2, 'k--')
+yline(0.25 * total_density_reference^2, 'c--')
 ylabel('$n_D \times n_T$', 'Interpreter','latex')
 box on
 xlim(t_zoom)
@@ -127,7 +127,7 @@ xlim(t_zoom)
 legend("current ratio", "ideal ratio", "interpreter", "latex", "Location", "southeast")
 
 nexttile(8)
-yline(ideal_ratio, 'k--')
+yline(ideal_ratio, 'c--')
 ylabel('$\hat{r}$', 'Interpreter','latex')
 xlabel('$t$ [s]', 'Interpreter','latex')
 box on
@@ -136,7 +136,7 @@ legend("nominal ratio", "ideal ratio", "interpreter", "latex", "Location", "sout
 
 nexttile(3, [3, 1])
 lim = axis;
-plot([min(lim), max(lim)], total_density_reference - [min(lim), max(lim)], "k--")
+plot([min(lim), max(lim)], total_density_reference - [min(lim), max(lim)], "c--")
 plot([min(lim), max(lim)], greenwald_density_limit - [min(lim), max(lim)], "r--")
 plot(0.5 * total_density_reference, 0.5 * total_density_reference, "gx", 'MarkerSize',10)
 axis([min(lim), max(lim), min(lim), max(lim)])
