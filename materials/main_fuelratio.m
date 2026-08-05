@@ -120,7 +120,7 @@ xlim(t_zoom)
 legend("$n_D \times n_T$", "ideal $n_D \times n_T$", "interpreter", "latex", "Location", "southeast")
 
 nexttile(5)
-yline(ideal_ratio, 'k--')
+yline(ideal_ratio, 'c--')
 ylabel('$r$', 'Interpreter','latex')
 box on
 xlim(t_zoom)

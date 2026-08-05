@@ -26,3 +26,26 @@ Juan told me I should run the MatLab code and I also agree with that so there is
 Juan does not recommend but I think I should read a bit about Fourier transform and Laplace transform.
 
 The summary of the presentation by Juan should be done within next week.
+
+
+
+
+
+# WEEK 2: 29/07 - 04/08
+
+
+**Overall**
+
+
+
+
+**Questions**
+I came up with some more theoretical questions (NOTE: At that time I did not note down anything, so I will try to document based on my memory, so not everything would be 100% accurate. Also I am only writing the more general questions here as the more detailed ones that require context are not written down, but the answers for them are in the *Theory* file):
+
+
+
+
+**Decisions**
+I decided to group the weekly journals into 1 file instead of separating them like the initial decision, mainly because I reckon there is not much information to be put into the journal.
+
+**Things that I should/need to do in the next week**
