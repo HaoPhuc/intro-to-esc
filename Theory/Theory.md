@@ -45,5 +45,17 @@ The goal is now slightly shifts towards trying to achieve the ideal fuel ratio *
 **r_ideal = alpha_2 / (alpha_1 + alpha_2)**
 **NOTE: Should write more clearly how can we reach this**
 
-Based on this equation, we can easily adjust the flowrates. However, there is one small problem: we don't know *alpha_1* and *alpha_2* and they may vary over time.
+Based on this equation, we can easily adjust the flowrates. However, there is one small problem: we don't know *alpha_1* and *alpha_2* and they may vary over time. So how are we going to calculate *alpha_1* and *alpha_2* and their funtions over time? We actually don't need to. There exists a simpler answer to the problem: Extremum Seeking Control (ESC).
+**Q: What is the reason that we cannot calculate the decay rate of a substance over time? What does it depend on that makes it so hard to calculate?**
 
+
+# Extremum Seeking Control (ESC)
+ESC is an online (not on the internet but in this case it means the search runs during operation, not before), adaptive (self-tuning), model-free (does not need a model of cost function) optimization method.
+We can actually measure the number of outgoing neutrons, which is proportional to *P* and in turns **n_T * n_D**. From that, ESC tunes the fuel rario *r* so that **n_T * n_D** is maximized.
+**Q: What are the equally if not better methods available?**
+**Q: How do we know the number of outgoing neutrons is proportional to P? How do the reactions occur to be exact?**
+
+
+![Figure 1: P(r), P(t), and r(t) in ESC](Theory/P(r), P(t), and r(t) in ESC.gif)
+
+![Figure 2: ESC Diagram](Theory/ESC Diagram.png)
