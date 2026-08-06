@@ -56,6 +56,6 @@ We can actually measure the number of outgoing neutrons, which is proportional t
 **Q: How do we know the number of outgoing neutrons is proportional to P? How do the reactions occur to be exact?**
 
 
-![Figure 1: P(r), P(t), and r(t) in ESC](P(r)_P(t)_r(t)_in_ESC.gif)
+![Figure 1: P(r), P(t), and r(t) in ESC](Pr_Pt_rt_ESC.gif)
 
 ![Figure 2: ESC Diagram](ESC_Diagram.png)
