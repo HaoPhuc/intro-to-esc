@@ -49,3 +49,7 @@ I came up with some more theoretical questions (NOTE: At that time I did not not
 I decided to group the weekly journals into 1 file instead of separating them like the initial decision, mainly because I reckon there is not much information to be put into the journal.
 
 **Things that I should/need to do in the next week**
+
+
+
+I should let the whole value run to see the effect of each parameter

@@ -53,9 +53,25 @@ Based on this equation, we can easily adjust the flowrates. However, there is on
 ESC is an online (not on the internet but in this case it means the search runs during operation, not before), adaptive (self-tuning), model-free (does not need a model of cost function) optimization method.
 We can actually measure the number of outgoing neutrons, which is proportional to *P* and in turns **n_T * n_D**. From that, ESC tunes the fuel rario *r* so that **n_T * n_D** is maximized.
 **Q: What are the equally if not better methods available?**
+Physics-based model. ESC is a data-based model, using data to create a model to control the plasma. Physics-based model, on the other hand, try to simulate and predict what will happen in the reactor. We know we have a good physics-based model when it correctly predicts the data collected.
 **Q: How do we know the number of outgoing neutrons is proportional to P? How do the reactions occur to be exact?**
+Juan is going to double check
 
 
-![Figure 1: P(r), P(t), and r(t) in ESC](Pr_Pt_rt_ESC.gif)
+**How does ESC work?**
+The main idea is to pertube the fuel ratio **r = r_hat + a * sin(w*t)**. The plasma reacts to the pertubations of *r* thus the power output is also pertubed **P ≈ P_hat + b * sin(w*t + phi)**. If we plot P(r) out, there are 2 cases:
+**NOTE: should derive to get P(r)**
 
-![Figure 2: ESC Diagram](ESC_Diagram.png)
+1. If *r* and *P* are in-phase, there is a positive local gradient.
+![Figure 1: P(r), P(t), and r(t) with r and P in-phase](Pr_Pt_rt_ESC_in_phase.gif)
+2. If *r* and *P* are anti-phase, there is a negative local gradient.
+![Figure 2: P(r), P(t), and r(t) with r and P anti-phase](Pr_Pt_rt_ESC_off_phase.gif)
+
+From here, we slowly update *r_hat* based on the derivative information until we reach the optimum.
+**Q: Do we also update the parameters?**
+
+
+This is how the whole process of ESC looks like:
+![Figure 3: ESC Diagram](ESC_Diagram.png)
+
+**NOTE: Need to read Fourier and Laplace transform for this**
