@@ -35,21 +35,51 @@ The summary of the presentation by Juan should be done within next week.
 
 
 **Overall**
-
-
-
-
-**Questions**
-I came up with some more theoretical questions (NOTE: At that time I did not note down anything, so I will try to document based on my memory, so not everything would be 100% accurate. Also I am only writing the more general questions here as the more detailed ones that require context are not written down, but the answers for them are in the *Theory* file):
-
+I spent this week structuring the theory and trying out the given code. Also, Juan walked me through on how the Simulink file works. This week is for me was to organize/structure everything before actually doing anything.
 
 
 
 **Decisions**
 I decided to group the weekly journals into 1 file instead of separating them like the initial decision, mainly because I reckon there is not much information to be put into the journal.
 
+
+
+**Things that I should/need to do in the next week**
+I should start coding the ESC model for manual tuning.
+
+
+
+
+
+# WEEK 3: 05/08 - 11/08
+
+
+**Overall**
+This week was just me showing Juan the code and him giving some suggestions on how I could improve it.
+
+
+
 **Things that I should/need to do in the next week**
 
+For my code, I should let the whole shot run with constant parameters to see the effect of each parameter on *P*.
+
+I should try to finish the manual tuning code next week and start working on the automation.
+
+Also, I should read about the Laplace and Fourier transforms, which I did not do in week 2, and maybe try to implement them.
 
 
-I should let the whole value run to see the effect of each parameter
+
+# WEEK 4: 12/08 - 18/08
+
+
+**Overall**
+
+
+
+
+**Decisions**
+
+
+
+
+**Things that I should/need to do in the next week**
