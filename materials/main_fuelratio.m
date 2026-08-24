@@ -29,7 +29,7 @@ total_density_reference = 11.5; % e19 removed for numerical stability
 greenwald_density_limit = 11.9; % e19 removed for numerical stability
 
 % Calculate transfer function of dynamics and discretize
-n_D_dynamics = ss(-n_D_decay_rate, 1, 1, 0);
+n_D_dynamics = ss(-n_D_decay_rate, 1, 1, 0); % dx/dt = A*x + B*u   ;   y = C*x + D*u
 n_T_dynamics = ss(-n_T_decay_rate, 1, 1, 0);
 n_D_dynamics_discretized = c2d(n_D_dynamics, dt);
 n_T_dynamics_discretized = c2d(n_T_dynamics, dt);
