@@ -89,7 +89,7 @@ for k = 1:n_steps
     % Error computation
     e_density = total_density_reference - (nD + nT); % how far off right now
     integral_density_error = integral_density_error + e_density * dt; % how far off historically
-    S_total = proportional_gain*e_density + integral_gain*integral_density_error;
+    S_total = proportional_gain * e_density + integral_gain * integral_density_error;
     S_total = max(S_total, 0);
 
     % Fuel pumping
