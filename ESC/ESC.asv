@@ -1,7 +1,7 @@
 %% Prerequisites
 clc; clear all; close all;
 
-%% ESC parameters (fixed for this run)
+%% ESC parameters
 dither_amplitude = 0.1;
 dither_frequency = 0.1;
 optimizer_gain   = 4e-4;
@@ -80,16 +80,17 @@ plot_update_every = 50;  % update the figure every N steps (for speed)
 
 %% Automated ESC loop
 for k = 1:n_steps
-    t_now = t_vec(k); % set current time
+    % Set current time
+    t_now = t_vec(k);
     
-    %current r
+    % Current r
     r = r_hat + dither_amplitude * sin(dither_omega * t_now); 
-    r = min(max(r, 0), 1);
+    r = min(max(r, 0), 1); % 0 <= r <= 1
 
     % Error computation
     e_density = total_density_reference - (nD + nT); % how far off right now
     integral_density_error = integral_density_error + e_density * dt; % how far off historically
-    S_total = proportional_gain*e_density + integral_gain*integral_density_error;
+    S_total = proportional_gain * e_density + integral_gain * integral_density_error;
     S_total = max(S_total, 0);
 
     % Fuel pumping
@@ -101,11 +102,12 @@ for k = 1:n_steps
     % Rescaled P (does not matter much because we focus more on the product of densities)
     P = nD * nT;
 
-    [hp_out, zi_hp] = filter(num_hp, den_hp, P, zi_hp); % high-pass filter s / (s + ω_hp)
-    demod = hp_out * (2/dither_amplitude) * sin(dither_omega * t_now); % demodulation ((2/a)sin(ωt))
-    [xi, zi_lp] = filter(num_lp, den_lp, demod, zi_lp); % low-pass filter (ω_c/(s+ω_c))
+    % Filters
+    [hp_out, zi_hp] = filter(num_hp, den_hp, P, zi_hp); % high-pass filter: s / (s + ω_hp)
+    demod = hp_out * (2/dither_amplitude) * sin(dither_omega * t_now); % demodulation: (2/a) * sin(ωt)
+    [xi, zi_lp] = filter(num_lp, den_lp, demod, zi_lp); % low-pass filter: ω_lp / (s + ω_lp)
     
-    % integrator (k/s)
+    % Integrator (k/s)
     r_hat = r_hat + optimizer_gain * xi * dt;
     r_hat = min(max(r_hat, 0), 1);
 

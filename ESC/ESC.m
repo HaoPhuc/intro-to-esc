@@ -1,7 +1,7 @@
 %% Prerequisites
 clc; clear all; close all;
 
-%% ESC parameters (fixed for this run)
+%% ESC parameters
 dither_amplitude = 0.1;
 dither_frequency = 0.1;
 optimizer_gain   = 4e-4;
@@ -80,11 +80,12 @@ plot_update_every = 50;  % update the figure every N steps (for speed)
 
 %% Automated ESC loop
 for k = 1:n_steps
-    t_now = t_vec(k); % set current time
+    % Set current time
+    t_now = t_vec(k);
     
-    %current r
+    % Current r
     r = r_hat + dither_amplitude * sin(dither_omega * t_now); 
-    r = min(max(r, 0), 1);
+    r = min(max(r, 0), 1); % 0 <= r <= 1
 
     % Error computation
     e_density = total_density_reference - (nD + nT); % how far off right now
@@ -92,7 +93,7 @@ for k = 1:n_steps
     S_total = proportional_gain * e_density + integral_gain * integral_density_error;
     S_total = max(S_total, 0);
 
-    % Fuel pumping
+    % Fuel pumping & Update densities
     u_D = r * S_total;
     u_T = (1 - r) * S_total;
     nD = Ad_D * nD + Bd_D * u_D;
@@ -110,6 +111,7 @@ for k = 1:n_steps
     r_hat = r_hat + optimizer_gain * xi * dt;
     r_hat = min(max(r_hat, 0), 1);
 
+    % Update vectors
     P_vec(k) = P;
     r_vec(k) = r;
     r_hat_vec(k) = r_hat;
