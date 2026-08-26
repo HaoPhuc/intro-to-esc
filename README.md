@@ -1,5 +1,7 @@
 ***This is the journal for my internship at DIFFER in summer 2026***
 
+STILL UPDATING
+
 # Files/folders explanation:
 - The materials provided by my supervisor, **Juan Javier Palacios Roman**, are located in the *materials* folder.
 

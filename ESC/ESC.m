@@ -36,7 +36,7 @@ n_T_dynamics = ss(-n_T_decay_rate, 1, 1, 0);
 
 % Discretize time & Extract Ad and Bd for simulating
 n_D_dynamics_discretized = c2d(n_D_dynamics, dt); % Ts = dt
-n_T_dynamics_discretized = c2d(n_T_dynamics, dt);
+n_T_dynamics_discretized = c2d(n_T_dynamics, dt); % nT​[k] = Ad​_T*nT​[k-1] + Bd​_T*uT​[k-1]
 [Ad_D, Bd_D, ~, ~] = ssdata(n_D_dynamics_discretized);
 [Ad_T, Bd_T, ~, ~] = ssdata(n_T_dynamics_discretized);
 
