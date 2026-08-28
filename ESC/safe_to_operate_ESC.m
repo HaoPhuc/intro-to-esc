@@ -10,7 +10,6 @@ combinations = 10000; % total random sets to test
 save_every = 500; % add results to CSV every N combinations
 csv_filename = 'safe-to-operate.csv';
 
-
 %% Simulation settings
 % Time
 tend = 100;
