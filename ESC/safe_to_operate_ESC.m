@@ -33,7 +33,7 @@ for i = 1:combinations
     optimizer_gain = 10^(log_range(1) + diff(log_range) * rand()); %randomize the power
 
     % Run trial
-    [converged, convergence_time] = run_esc_trial(dither_amplitude, dither_frequency, optimizer_gain, dt, tend, convergence_fraction, conv_hold_time);
+    [converged, convergence_time] = esc_trial(dither_amplitude, dither_frequency, optimizer_gain, dt, tend, convergence_fraction, conv_hold_time);
 
     % Append results
     results = [results; {optimizer_gain, dither_amplitude, dither_frequency, converged, convergence_time}];
@@ -54,7 +54,7 @@ disp('Batch sweep complete');
 
 % ESC TRIAL (same as in ESC.m)
 
-function [converged, convergence_time] = run_esc_trial(dither_amplitude, dither_frequency, optimizer_gain, dt, tend, fraction, hold_time)
+function [converged, convergence_time] = esc_trial(dither_amplitude, dither_frequency, optimizer_gain, dt, tend, fraction, hold_time)
 
     dither_omega = dither_frequency * 2 * pi;
     highpass_cutoff_omega = dither_omega / pi;
