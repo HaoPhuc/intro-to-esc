@@ -4,11 +4,11 @@ clc; clear all; close all;
 %% Create table and preallocate results
 results = table(Size = [0 5], ...
     VariableTypes = {'double','double','double','logical','double'}, ...
-    VariableNames = {'optimizer_gain','dither_amplitude','dither_frequency','y','convergence_time'});
+    VariableNames = {'optimizer_gain','dither_amplitude','dither_frequency','converged','convergence_time'});
 %% Batch sweep settings
 combinations = 10000; % total random sets to test
 save_every = 500; % add results to CSV every N combinations
-csv_filename = 'safe-to-operate.csv';
+csv_filename = 'STO-const_decay.csv';
 
 %% Simulation settings
 % Time
@@ -24,8 +24,8 @@ for i = 1:combinations
 
     % ESC parameters range
     dither_amplitude_range = [0.01, 0.5];
-    dither_frequency_range = [0.01, 0.5];    
-    optimizer_gain_range   = [1e-5, 1e-2];
+    dither_frequency_range = [0.4, 0.8];    
+    optimizer_gain_range   = [1e-3, 1e-1];
     % ESC parameters (randomized)
     dither_amplitude = dither_amplitude_range(1) + diff(dither_amplitude_range) * rand();
     dither_frequency = dither_frequency_range(1) + diff(dither_frequency_range) * rand();
@@ -39,7 +39,7 @@ for i = 1:combinations
     results = [results; {optimizer_gain, dither_amplitude, dither_frequency, converged, convergence_time}];
 
     % Print progress to the console
-    fprintf('Trial %d/%d: gain=%.4g, amp=%.4g, freq=%.4g -> y=%d, conv_time=%.2f\n', i, combinations, optimizer_gain, dither_amplitude, dither_frequency, converged, convergence_time);
+    fprintf('Trial %d/%d: gain=%.4g, amp=%.4g, freq=%.4g -> converged=%d, conv_time=%.2f\n', i, combinations, optimizer_gain, dither_amplitude, dither_frequency, converged, convergence_time);
 
     % Save progress to csv every N combinations (just in case)
     if mod(i, save_every) == 0 || i == combinations
@@ -151,7 +151,7 @@ function [converged, convergence_time] = esc_trial(dither_amplitude, dither_freq
 
     % Convergence condition
     bound_range = fraction * ideal_ratio;
-    in_bound = abs(r_hat_vec - ideal_ratio) <= bound_range;
+    in_bound = abs(r_hat_vec - ideal_ratio) <= bound_range; % boolean list
     
     % Convergence time counting setting
     hold = round(hold_time / dt);
