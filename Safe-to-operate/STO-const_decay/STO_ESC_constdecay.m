@@ -6,9 +6,9 @@ results = table(Size = [0 5], ...
     VariableTypes = {'double','double','double','logical','double'}, ...
     VariableNames = {'optimizer_gain','dither_amplitude','dither_frequency','converged','convergence_time'});
 %% Batch sweep settings
-combinations = 500000; % total random sets to test
+combinations = 1000000; % total random sets to test
 save_every = 500; % add results to CSV every N combinations
-csv_filename = 'STO-const_decay-2.csv';
+csv_filename = 'STO-const_decay-1m.csv';
 
 %% Simulation settings
 % Time
@@ -23,9 +23,9 @@ conv_hold_time = 5; % must stay within bound
 for i = 1:combinations
 
     % ESC parameters range
-    optimizer_gain_range   = [1e-5, 0.25];
-    dither_amplitude_range = [1e-5, 2.5];
-    dither_frequency_range = [1e-5, 3];    
+    optimizer_gain_range   = [1e-5, 1];
+    dither_amplitude_range = [1e-25, 10];
+    dither_frequency_range = [1e-25, 20];    
     
     % ESC parameters (randomized)
     dither_amplitude = dither_amplitude_range(1) + diff(dither_amplitude_range) * rand();
