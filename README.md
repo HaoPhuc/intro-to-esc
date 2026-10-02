@@ -3,6 +3,6 @@ This repository contains every materials for my project "Introduction to Extreme
 The goals of this project:
 1. <DONE>    Understand the purpose and fundamentals of Extrememum Seeking Control (ESC), and from there build a functional ESC algorithm.
 2. <ONGOING> Study the relations between parameters in ESC
-3. <ONGOING> Use regression models to predict the safe range of values of ESC parameters to operate the Tokamak and the range of values that returns the fastest convergence time.
-4. <PENDING> Add noise to data and let constants (such as the decay rates, output delays, etc.) change over time to replicate the actual problems engineers face operating the Tokamaks.
-5. <ONGOING> Build more ESC algorithms and compare the performances.
+3. <ONGOING> Use regression models to predict the optimal range of values of ESC parameters to operate the Tokamak based on convergence time.
+4. <PENDING> Make the system(s) more complex by adding/modifying elements (e.g. time-dependent decay rates, non-linear state spaces, random noises in data, output delays, etc.) to replicate the actual problems engineers face operating the Tokamaks.
+5. <ONGOING> Build more ESC algorithms (e.g. dicrete-time ESC, RMSprop optimizer, etc.) and compare the performances.
