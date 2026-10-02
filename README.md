@@ -6,3 +6,4 @@ The goals of this project:
 3. <ONGOING> Use regression models to predict the optimal range of values of ESC parameters to operate the Tokamak based on convergence time.
 4. <PENDING> Make the system(s) more complex by adding/modifying elements (e.g. time-dependent decay rates, non-linear state spaces, random noises in data, output delays, etc.) to replicate the actual problems engineers face operating the Tokamaks.
 5. <ONGOING> Build more ESC algorithms (e.g. dicrete-time ESC, RMSprop optimizer, etc.) and compare the performances.
+6. <PENDING> Implement the model(s) on physical setup(s)
